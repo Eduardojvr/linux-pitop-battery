@@ -181,14 +181,17 @@ static int sbs_read_word_data(struct i2c_client *client, u8 address)
         /* ??? */
 	retries = chip->i2c_retry_count;
 
+        if (retries < 20)
+            retries = 20;
+
 	while (retries > 0) {
+		msleep(500);
 		ret = i2c_smbus_read_word_data(client, address);
 
 		if (ret >= 0)
 			break;
 
-		/*retries--;*/
-		msleep(500);
+		retries--;
 	}
 
 	if (ret < 0) {
