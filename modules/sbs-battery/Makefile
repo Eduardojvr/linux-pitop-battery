@@ -1,4 +1,4 @@
-obj-m += pitop-battery.o
+obj-m += sbs-battery.o
 
 KDIR ?= "/lib/modules/$(shell uname -r)/build"
 

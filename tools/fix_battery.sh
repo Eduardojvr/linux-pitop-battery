@@ -10,7 +10,10 @@ fi
 # Unregister the battery for i2c access
 echo 0x0b > /sys/class/i2c-adapter/i2c-1/delete_device
 
-passes=20
+# This is required
+modprobe i2c-dev
+
+passes=100
 
 while [ $passes -gt 0 ]; do
   until ./pt-battery-fw-update -d

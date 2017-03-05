@@ -1,31 +1,36 @@
+/*
+ * Gas Gauge driver for SBS Compliant Batteries
+ *
+ * Copyright (c) 2010, NVIDIA Corporation.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/err.h>
 #include <linux/power_supply.h>
-#include <linux/types.h>
 #include <linux/i2c.h>
 #include <linux/slab.h>
 #include <linux/interrupt.h>
 #include <linux/gpio/consumer.h>
 #include <linux/of.h>
 #include <linux/stat.h>
-#include <linux/delay.h>
 
-/**
- * struct sbs_platform_data - platform data for sbs devices
- * @battery_detect:		GPIO which is used to detect battery presence
- * @battery_detect_present:	gpio state when battery is present (0 / 1)
- * @i2c_retry_count:		# of times to retry on i2c IO failure
- * @poll_retry_count:		# of times to retry looking for new status after
- *				external change notification
- */
-struct sbs_platform_data {
-	int battery_detect;
-	int battery_detect_present;
-	int i2c_retry_count;
-	int poll_retry_count;
-};
+#include <linux/power/sbs-battery.h>
 
 enum {
 	REG_MANUFACTURER_DATA,
@@ -178,19 +183,13 @@ static int sbs_read_word_data(struct i2c_client *client, u8 address)
 	struct sbs_info *chip = i2c_get_clientdata(client);
 	s32 ret = 0;
 	int retries = 1;
-        /* ??? */
+
 	retries = chip->i2c_retry_count;
 
-        if (retries < 20)
-            retries = 20;
-
 	while (retries > 0) {
-		msleep(500);
 		ret = i2c_smbus_read_word_data(client, address);
-
 		if (ret >= 0)
 			break;
-
 		retries--;
 	}
 
@@ -902,13 +901,15 @@ static SIMPLE_DEV_PM_OPS(sbs_pm_ops, sbs_suspend, NULL);
 #endif
 
 static const struct i2c_device_id sbs_id[] = {
-	{ "pitop-battery", 0 },
+	{ "bq20z75", 0 },
+	{ "sbs-battery", 1 },
 	{}
 };
 MODULE_DEVICE_TABLE(i2c, sbs_id);
 
 static const struct of_device_id sbs_dt_ids[] = {
-	{ .compatible = "sbs,pitop-battery" },
+	{ .compatible = "sbs,sbs-battery" },
+	{ .compatible = "ti,bq20z75" },
 	{ }
 };
 MODULE_DEVICE_TABLE(of, sbs_dt_ids);
@@ -918,14 +919,14 @@ static struct i2c_driver sbs_battery_driver = {
 	.remove		= sbs_remove,
 	.id_table	= sbs_id,
 	.driver = {
-		.name	= "pitop-battery",
+		.name	= "sbs-battery",
 		.of_match_table = sbs_dt_ids,
 		.pm	= SBS_PM_OPS,
 	},
 };
 module_i2c_driver(sbs_battery_driver);
 
-MODULE_DESCRIPTION("Pi-Top battery monitor driver");
+MODULE_DESCRIPTION("SBS battery monitor driver");
 MODULE_LICENSE("GPL");
 
 module_param(force_load, bool, S_IRUSR | S_IRGRP | S_IROTH);
