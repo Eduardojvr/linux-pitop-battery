@@ -13,7 +13,7 @@ echo 0x0b > /sys/class/i2c-adapter/i2c-1/delete_device
 # This is required
 modprobe i2c-dev
 
-passes=100
+passes=10
 
 while [ $passes -gt 0 ]; do
   until ./pt-battery-fw-update -d

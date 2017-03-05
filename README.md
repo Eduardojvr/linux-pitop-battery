@@ -7,9 +7,11 @@ this module.
 
 ## Steps to get it working
 
- - Build the modules using `build_modules.sh`
- - `sudo mkdir /usr/local/share/ptb`
- - `sudo mv sbs-battery.ko i2c-gpio-param.ko /usr/local/share/ptb`
+ - `git submodule init`
+ - `git submodule update`
+ - `sudo ./register_dkms.sh`
+
+(To uninstall, run `sudo ./remove_dkms.sh`.)
 
 After doing the above, you need to modify the following three files:
 
@@ -33,7 +35,7 @@ Comment out all the i2c modules:
 #!/bin/sh -e
 
 # register I2C
-insmod /usr/local/share/ptb/i2c-gpio-param.ko busid=1 sda=2 scl=3
+modprobe i2c-gpio-param busid=1 sda=2 scl=3
 modprobe i2c-dev
 
 # give it a moment to... initialize?
@@ -41,7 +43,7 @@ modprobe i2c-dev
 sleep 2
 
 # register Pi-Top battery
-insmod /usr/local/share/ptb/sbs-battery.ko
+modprobe sbs-battery
 echo sbs-battery 0x0b > /sys/class/i2c-adapter/i2c-1/new_device
 
 exit 0

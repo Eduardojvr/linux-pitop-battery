@@ -1,6 +1,8 @@
 obj-m += sbs-battery.o
 
-KDIR ?= "/lib/modules/$(shell uname -r)/build"
+KERNELRELEASE ?= $(shell uname -r)
+
+KDIR ?= "/lib/modules/$(KERNELRELEASE)/build"
 
 all:
 	make -C "$(KDIR)" "M=$(PWD)" modules
