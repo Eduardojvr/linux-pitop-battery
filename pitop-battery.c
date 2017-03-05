@@ -10,6 +10,7 @@
 #include <linux/gpio/consumer.h>
 #include <linux/of.h>
 #include <linux/stat.h>
+#include <linux/delay.h>
 
 /**
  * struct sbs_platform_data - platform data for sbs devices
@@ -177,14 +178,17 @@ static int sbs_read_word_data(struct i2c_client *client, u8 address)
 	struct sbs_info *chip = i2c_get_clientdata(client);
 	s32 ret = 0;
 	int retries = 1;
-
+        /* ??? */
 	retries = chip->i2c_retry_count;
 
 	while (retries > 0) {
 		ret = i2c_smbus_read_word_data(client, address);
+
 		if (ret >= 0)
 			break;
-		retries--;
+
+		/*retries--;*/
+		msleep(500);
 	}
 
 	if (ret < 0) {
