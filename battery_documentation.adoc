@@ -1,0 +1,58 @@
+Pi-Top Battery Information
+==========================
+
+Fire hazard?
+------------
+
+[WARNING]
+====
+If a Li-ion battery overheats, hisses or bulges, immediately move the
+device away from flammable materials and place it on a non-combustible
+surface.
+If at all possible, remove the battery and put it outdoors to burn out.
+
+A small Li-ion fire can be handled like any other combustible fire.
+For best result use a foam extinguisher, CO2, ABC dry chemical, powdered
+graphite, copper powder or soda (sodium carbonate).
+If the fire occurs in an airplane cabin, the FAA instructs flight
+attendants to use water or soda pop.
+Water-based products are most readily available and are appropriate
+since Li-ion contains very little lithium metal that reacts with water.
+Water also cools the adjacent area and prevents the fire from spreading.
+Research laboratories and factories also use water to extinguish Li-ion
+battery fires.
+Halon is also used as fire suppressant, but this agent may not be
+sufficient to extinguish a large Li-ion fire in the cargo bay of an
+aircraft.
+
+A large Li-ion fire, such as in an EV, may need to burn out as water
+is ineffective.
+Water with copper material can be used, but this may not be available
+and is costly for fire halls.
+
+When encountering a fire with a lithium-metal battery, only use a Class
+D fire extinguisher.
+**Lithium-metal contains plenty of lithium that reacts with water and
+makes the fire worse.**
+As the number of EVs grows, so must the methods to extinguish such fires.
+
+For more information, see
+link:http://www.batteryuniversity.com/learn/article/safety_concerns_with_li_ion[this page].
+====
+
+There is a manufacturer access program created by @rricharz, but he has
+asked me not to spread it around due to the risk of fire.
+If you need it, ask him.
+The program is called `m_access`.
+
+Basic Information
+-----------------
+
+Hardware information is from @rricharz.
+The guy's definitely a wizard.
+
+ - The battery is a `bq40z60`.
+ - The slave address is `0x0b`.
+ - If any cell drops below 2.5V, the whole thing fails permanently.
+ - If the hub controller is not shut down _properly_, it will keep
+   draining the battery even when everything else is off.
