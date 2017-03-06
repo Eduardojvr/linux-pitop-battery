@@ -56,3 +56,5 @@ The guy's definitely a wizard.
  - If any cell drops below 2.5V, the whole thing fails permanently.
  - If the hub controller is not shut down _properly_, it will keep
    draining the battery even when everything else is off.
+ - Check link:https://github.com/rricharz/pi-top-battery-status/blob/master/battery_problems.md[this page]
+   if you have problems.
