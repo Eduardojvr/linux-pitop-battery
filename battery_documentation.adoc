@@ -43,17 +43,15 @@ link:http://www.batteryuniversity.com/learn/article/safety_concerns_with_li_ion[
 There is a manufacturer access program created by @rricharz, but he has
 asked me not to spread it around due to the risk of fire.
 If you need it, ask him.
-The program is called `m_access`.
 
 Basic Information
 -----------------
 
 Hardware information is from @rricharz.
-The guy's definitely a wizard.
 
- - The battery is a `bq40z60`.
+ - The intelligent battery controller is a `bq40z60`.
  - The slave address is `0x0b`.
- - If any cell drops below 2.5V, the whole thing fails permanently.
+ - If any cell drops below 2.5V, it is most likely permanently damaged.
  - If the hub controller is not shut down _properly_, it will keep
    draining the battery even when everything else is off.
  - Check link:https://github.com/rricharz/pi-top-battery-status/blob/master/battery_problems.md[this page]

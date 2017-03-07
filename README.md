@@ -77,25 +77,8 @@ gpu_mem=256
 
 ## Using the Pi-Top speaker
 
-According to @rricharz:
-> I figured out what was wrong with the pi-topSPEAKER after installing
-> the bit banging driver.
-> The problem is that the `gpio` command does not work.
->
-> Solution (assumes that the speaker worked before installing the bit
-> banging driver, and using an rpi 2 or 3):
->
-> Edit the file `/usr/bin/pt-speaker`
->
-> Change the line reading
-```sh
-mapfile -t data < <(gpio i2cdetect)
-```
-> to
-```sh
-mapfile -t data < <(i2cdetect -y 1)
-```
-> Now it works after a reboot.
+If the Pi-Top speaker has worked before switching to the bit-banging i2c driver, it
+will continue to work after the switch.
 
 
 ## Next steps
