@@ -1,0 +1,2 @@
+modules/sbs-battery/Makefile usr/src/sbs-battery-1.0
+modules/sbs-battery/sbs-battery.c usr/src/sbs-battery-1.0

@@ -1,0 +1,25 @@
+Source: pitop-battery-driver
+Section: kernel
+Priority: optional
+Maintainer: Christopher Clements <bcnjr5@gmail.com>
+Build-Depends: debhelper (>= 9), bzip2
+Standards-Version: 3.9.5
+Homepage: https://github.com/bcnjr5/linux-pitop-battery
+Vcs-Git: git://github.com/bcnjr5/linux-pitop-battery.git
+Vcs-Browser: https://github.com/bcnjr5/linux-pitop-battery
+
+Package: pitop-battery-support
+Architecture: all
+Depends: sbs-battery-dkms, i2c-gpio-param-dkms, ${shlibs:Depends}, ${misc:Depends}
+Recommends: pt-hub-controller
+Description: Makes the kernel treat the Pi-Top battery as a power supply.
+
+Package: sbs-battery-dkms
+Architecture: all
+Depends: dkms
+Description: DKMS package for the sbs-battery module.
+
+Package: i2c-gpio-param-dkms
+Architecture: all
+Depends: dkms
+Description: DKMS package for the i2c-gpio-param module.

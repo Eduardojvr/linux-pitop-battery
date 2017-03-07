@@ -1,0 +1,2 @@
+modules/i2c-gpio-param/Makefile usr/src/i2c-gpio-param-1.0
+modules/i2c-gpio-param/i2c-gpio-param.c usr/src/i2c-gpio-param-1.0

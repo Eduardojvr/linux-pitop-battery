@@ -1,3 +1,0 @@
-[submodule "modules/i2c-gpio-param"]
-	path = modules/i2c-gpio-param
-	url = git://github.com/kadamski/i2c-gpio-param.git

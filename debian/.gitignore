@@ -1,0 +1,8 @@
+*.debhelper
+*.debhelper.log
+*.substvars
+debhelper-build-stamp
+files
+i2c-gpio-param-dkms/
+pitop-battery-support/
+sbs-battery-dkms/
