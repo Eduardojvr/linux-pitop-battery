@@ -43,6 +43,8 @@ link:http://www.batteryuniversity.com/learn/article/safety_concerns_with_li_ion[
 There is a manufacturer access program created by @rricharz, but he has
 asked me not to spread it around due to the risk of fire.
 If you need it, ask him.
+A less dangerous version is available
+link:https://github.com/rricharz/pi-top-battery-analyze[here].
 
 Basic Information
 -----------------
