@@ -49,7 +49,8 @@ Basic Information
 
 Hardware information is from @rricharz.
 
- - The intelligent battery controller is a `bq40z60`.
+ - The intelligent battery controller is a
+   link:http://www.ti.com/product/BQ40Z60/technicaldocuments[bq40z60].
  - The slave address is `0x0b`.
  - If any cell drops below 2.5V, it is most likely permanently damaged.
  - If the hub controller is not shut down _properly_, it will keep
