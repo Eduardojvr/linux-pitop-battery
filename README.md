@@ -1,5 +1,6 @@
 ## Installing
 
+ - Run `sudo apt-get install raspberrypi-kernel-headers`
  - Add `deb http://0xc9.net/apt-deb ./` to `/etc/apt/sources.list`
  - Run `sudo apt-get update`
  - Run `sudo apt-get install pitop-battery-support`
@@ -9,6 +10,7 @@
 This way uses `dpkg` instead of `apt`, which means you need to install
 the dependencies yourself.
 
+ - Run `sudo apt-get install raspberrypi-kernel-headers`
  - Grab all the .deb files on the
    [release page](https://github.com/bcnjr5/linux-pitop-battery/releases)
    for the latest version.
