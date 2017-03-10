@@ -57,7 +57,7 @@ gpu_mem=256
 #dtoverlay=i2c-rtc,ds3231
 ```
 
-### `install battery display in standard Raspbian desktop
+### `install battery display in standard Raspbian desktop`
 
 - Right-click on menu bar and select `Add / Remove Panel Items`
 - Click on the `Add` button, select `Battery Monitor` and click `Ok`
