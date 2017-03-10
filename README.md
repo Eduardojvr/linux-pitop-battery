@@ -83,3 +83,29 @@ echo ds3231 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
 
 If the Pi-Top speaker has worked before switching to the bit-banging
 I2C driver, it should continue to work after the switch.
+
+## If it still doesn't work
+
+Make sure that you have the headers for your kernel version.
+
+Do you have `raspberrypi-kernel-headers`?
+
+Try `ls /lib/modules/$(uname -r)/build`
+
+If you get something like
+`ls: cannot access /lib/modules/4.9.13-v7+/build: No such file or directory`,
+then consider downgrading the firmware.
+
+First, run `tools/available_headers.sh`.
+Pick the latest version and find it on
+[this page](https://github.com/Hexxeh/rpi-firmware/commits/master).
+
+For example, if the latest version is `4.4.50`, then
+the commit you want will be called
+"[kernel: Bump to 4.4.50](https://github.com/Hexxeh/rpi-firmware/commit/52241088c1da59a359110d39c1875cda56496764)"
+
+Copy the git hash for the commit, and run `sudo rpi-update GIT-HASH`
+(for example, for `4.4.50` it would be
+`sudo rpi-update 52241088c1da59a359110d39c1875cda56496764`)
+
+After rebooting, everything should work.
