@@ -11,7 +11,7 @@ This way uses `dpkg` instead of `apt`, which means you need to install
 the dependencies yourself.
 
  - Run `sudo apt-get install raspberrypi-kernel-headers dkms`
- - If you want to check whether he proper kernel headers have been installed, see
+ - If you want to check whether the proper kernel headers have been installed, see
    [check kernel header version](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=176897)
  - Grab all the .deb files on the
    [release page](https://github.com/bcnjr5/linux-pitop-battery/releases)
@@ -56,6 +56,13 @@ gpu_mem=256
 #dtparam=i2c1_baudrate=50000
 #dtoverlay=i2c-rtc,ds3231
 ```
+
+### `install battery display in standard Raspbian desktop
+
+- Right-click on menu bar and select `Add / Remove Panel Items`
+- Click on the `Add` button, select `Battery Monitor` and click `Ok`
+- Use the `Up` and `Down` buttons to position the `Battery Monitor` as you like
+- Click the `Ok` button
 
 ## Other I2C hardware
 
