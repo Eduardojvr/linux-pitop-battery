@@ -11,6 +11,8 @@ This way uses `dpkg` instead of `apt`, which means you need to install
 the dependencies yourself.
 
  - Run `sudo apt-get install raspberrypi-kernel-headers dkms`
+ - If you want to check whether he proper kernel headers have been installed, see
+   [check kernel header version](https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=176897)
  - Grab all the .deb files on the
    [release page](https://github.com/bcnjr5/linux-pitop-battery/releases)
    for the latest version.
