@@ -57,12 +57,30 @@ gpu_mem=256
 #dtoverlay=i2c-rtc,ds3231
 ```
 
-### `install battery display in standard Raspbian desktop`
+### `install battery display in standard Raspbian desktop (lxde)`
 
 - Right-click on menu bar and select `Add / Remove Panel Items`
 - Click on the `Add` button, select `Battery Monitor` and click `Ok`
 - Use the `Up` and `Down` buttons to position the `Battery Monitor` as you like
 - Click the `Ok` button
+- Right-click on the battery icon displayed
+- Set Alarmtime to 20, to be on the safe side for the pi-top battery
+
+This will give you a warning on the lxde desktop, if the rpi is o battery power
+and only 20 minutes are left.
+
+Install uPower Power manager. With the proposed settings, it will shutdown the rpi when it is on
+battery power and only 720 seconds are left, unfortunately without any further warning on the lxde desktop
+
+- In a terminal window, type `sudo apt-get install upower`
+- Edit `/etc/UPower/UPower.conf`:
+- Set `Igorelid` to `true`
+- Set `TimeLow` to `1200`
+- Set `TimeCritical` to `1200`
+- Set `TimeAction` to `720`
+- Set `CriticalPowerAction` to `PowerOff`
+- Save new settings and reboot
+
 
 ## Other I2C hardware
 
