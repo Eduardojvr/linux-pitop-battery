@@ -66,7 +66,7 @@ gpu_mem=256
 - Right-click on the battery icon displayed
 - Set Alarmtime to 20, to be on the safe side for the pi-top battery
 
-This will give you a warning on the lxde desktop, if the rpi is o battery power
+This will give you a warning on the lxde desktop, if the rpi is on battery power
 and only 20 minutes are left.
 
 Install uPower Power manager. With the proposed settings, it will shutdown the rpi when it is on
