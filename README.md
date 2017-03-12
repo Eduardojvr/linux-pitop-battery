@@ -83,14 +83,14 @@ You can install the UPower power manager to handle this:
      - Set `PercentageCritical` to `10`
      - Set `PercentageAction` to `5`
    * If `false`:
-     - Set `TimeLow` to `1200`
-     - Set `TimeCritical` to `1200`
-     - Set `TimeAction` to `720`
+     - Set `TimeLow` to `5400`
+     - Set `TimeCritical` to `3600`
+     - Set `TimeAction` to `1800`
    * Set `CriticalPowerAction` to `PowerOff`
  - Save new settings and reboot
 
 With the proposed settings, the Raspberry Pi will shut down if it is on
-battery power and only 720 seconds are left.
+battery power and only 1800 seconds or 5% are left.
 Unfortunately, it will do so without any further warning on the LXDE
 desktop.
 
