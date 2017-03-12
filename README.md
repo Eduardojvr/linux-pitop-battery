@@ -77,9 +77,15 @@ You can install the UPower power manager to handle this:
  - In a terminal window, type `sudo apt-get install upower`
  - Edit `/etc/UPower/UPower.conf`:
    * Set `IgnoreLid` to `true`
-   * Set `TimeLow` to `1200`
-   * Set `TimeCritical` to `1200`
-   * Set `TimeAction` to `720`
+   * Set `UsePercentageForPolicy` to either `true` or `false`
+   * If `true`:
+     - Set `PercentageLow` to `15`
+     - Set `PercentageCritical` to `10`
+     - Set `PercentageAction` to `5`
+   * If `false`:
+     - Set `TimeLow` to `1200`
+     - Set `TimeCritical` to `1200`
+     - Set `TimeAction` to `720`
    * Set `CriticalPowerAction` to `PowerOff`
  - Save new settings and reboot
 
