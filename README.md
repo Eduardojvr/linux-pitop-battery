@@ -4,6 +4,11 @@
  - Add `deb http://0xc9.net/apt-deb ./` to `/etc/apt/sources.list`
  - Run `sudo apt-get update`
  - Run `sudo apt-get install pitop-battery-support`
+ - If you are running [Raspbian](http://www.raspbian.org)
+   instead of [pi-topOS](https://pi-top.com/get-started),
+   please consider adding the stuff from @rricharz's
+   [pi-top-install](https://github.com/rricharz/pi-top-install)
+   repository.
 
 ## Manual install method
 
@@ -19,7 +24,6 @@ the dependencies yourself.
  - Use `dpkg` to install `i2c-gpio-param-dkms_1.0_all.deb` and
    `sbs-battery-dkms_1.0_all.deb`
    * `sudo dpkg -i i2c-gpio-param-dkms_1.0_all.deb sbs-battery-dkms_1.0_all.deb`
- - Use `dpkg` to instal
 
 ## Getting it working
 
