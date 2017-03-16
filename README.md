@@ -19,7 +19,8 @@ the dependencies yourself.
  - Use `dpkg` to install `i2c-gpio-param-dkms_1.0_all.deb` and
    `sbs-battery-dkms_1.0_all.deb`
    * `sudo dpkg -i i2c-gpio-param-dkms_1.0_all.deb sbs-battery-dkms_1.0_all.deb`
- - Use `dpkg` to instal
+ - Use `dpkg` to install `pitop-battery-support_1.0_all.deb`
+   * `sudo dpkg -i pitop-battery-support_1.0_all.deb`
 
 ## Getting it working
 
