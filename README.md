@@ -4,6 +4,11 @@
  - Add `deb http://0xc9.net/apt-deb ./` to `/etc/apt/sources.list`
  - Run `sudo apt-get update`
  - Run `sudo apt-get install pitop-battery-support`
+ - If you are running [Raspbian](http://www.raspbian.org)
+   instead of [pi-topOS](https://pi-top.com/get-started),
+   please consider adding the stuff from @rricharz's
+   [pi-top-install](https://github.com/rricharz/pi-top-install)
+   repository.
 
 ## Manual install method
 
