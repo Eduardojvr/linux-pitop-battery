@@ -9,6 +9,9 @@
    please consider adding the stuff from @rricharz's
    [pi-top-install](https://github.com/rricharz/pi-top-install)
    repository.
+   * There are debian packages available
+     [here](https://github.com/bcnjr5/pi-top-install.deb/releases).
+     You can also use `apt-get install pi-top-brightness pi-top-poweroff`.
 
 ## Manual install method
 
