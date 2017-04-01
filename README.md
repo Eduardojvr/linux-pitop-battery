@@ -108,6 +108,9 @@ desktop.
 Here are some examples for adding other I2C devices without using
 device trees.
 
+(For information about GPIO with the pi-top, see
+[this post](https://www.raspberrypi.org/forums/viewtopic.php?p=850719#p850719).)
+
 ### Chronodot 2.1 Real Time Clock
 
 I have an RTC connected to the hub, so I added this to `/etc/rc.local`:
